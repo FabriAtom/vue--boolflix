@@ -1,17 +1,34 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <SearchBar @onResponse="movie" />
+    <ul>
+      <CardMovie v-for="movie in movies" :key="movie.id" :movie="movie" />
+    </ul>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import CardMovie from './components/CardMovie.vue'
+import SearchBar from './components/SearchBar.vue'
 
 export default {
   name: 'App',
+  data() {
+      return {
+        movies:[],
+        api_key:"",
+        query:"",
+        BASE_URY:""
+      };
+  },
+  methods: {
+    setMovies(movies) {
+      this.movies = movies
+    },
+  },
   components: {
-    HelloWorld
+    SearchBar,
+    CardMovie
   }
 }
 </script>
@@ -26,3 +43,4 @@ export default {
   margin-top: 60px;
 }
 </style>
+
