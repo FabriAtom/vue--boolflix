@@ -1,11 +1,13 @@
 <template>
   <div id="app">
-    <SearchBar @onResponse="movie" />
+    <SearchBar @onResponse="setMovies" />
     <ul>
       <CardMovie v-for="movie in movies" :key="movie.id" :movie="movie" />
     </ul>
   </div>
 </template>
+
+
 
 <script>
 import CardMovie from './components/CardMovie.vue'
@@ -16,9 +18,9 @@ export default {
   data() {
       return {
         movies:[],
-        api_key:"",
-        query:"",
-        BASE_URY:""
+        api_key:"c35650324876c9a570dd037e052ea8e9",
+        query:'',
+        BASE_URI:"https://api.themoviedb.org/3"
       };
   },
   methods: {
@@ -33,12 +35,13 @@ export default {
 }
 </script>
 
+
+
 <style lang="scss">
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
   margin-top: 60px;
 }
