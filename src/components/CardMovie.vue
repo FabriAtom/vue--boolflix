@@ -2,8 +2,10 @@
     <li>
         <h3>{{ movie.title }}</h3>
         <p>{{ movie.original_title }}</p>
-        <p>{{ movie.original_language }}</p>
-        <p>{{ movie.vote_average }}</p>
+        <p>{{ movie.lang }}</p>
+        <p>{{ movie.vote }}</p>
+        <p>{{ movie.poster }}</p>
+        <p>{{ movie.flag }}</p>
 
     </li>
 </template>

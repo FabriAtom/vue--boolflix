@@ -17,11 +17,29 @@ export default {
   name: 'App',
   data() {
       return {
-        movies:[],
+        original_movies:[],
         api_key:"c35650324876c9a570dd037e052ea8e9",
         query:'',
-        BASE_URI:"https://api.themoviedb.org/3"
+        BASE_URI:"https://api.themoviedb.org/3",
+        posterBaseUri:'https://blablabla/'
       };
+  },
+  computed: {
+    movies() {
+      return this.original_movies.map((el) => {
+        const newMovie = {
+          id: el.id,
+          title: el.title,
+          original_title: el.original_title,
+          lang: el.original_language,
+          flag: '',
+          poster: `${this.posterBaseUri}w342${el.poster_path}`,
+          vote: Math.round(el.vote_average / 2)
+        }
+
+        return newMovie
+      })
+    }
   },
   methods: {
     setMovies(movies) {
