@@ -22,6 +22,7 @@
             fetchMovies() {
               if(this.query.trim() === '')
                  return
+                 
                 //  chiamata
              axios.get(`${this.BASE_URI}/search/movie`, {
                 params: {
